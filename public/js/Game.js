@@ -23,7 +23,6 @@ Game.prototype.render = function(time) {
     }
   }
   if (this.tick % 10 === 0 && this.particles.length < this.particlesMax) {
-    console.log('new particle');
     this.particles.push(new Particle(this.particles.length));
     this.particles[this.particles.length - 1].init(this.canvas);
   }
@@ -67,7 +66,7 @@ Particle.prototype = {
       this.x = (this.canvas.width / 2) - 150;
       this.y = (this.canvas.height / 2) ;
     }
-    this.radius = 5;
+    this.radius = 4;
   },
 
   render: function(time, prevParticle) {
@@ -101,7 +100,7 @@ Particle.prototype = {
 
     if (this.lineX && this.lineY) {
       context.strokeStyle = this.color;
-      context.lineWidth = 4;
+      context.lineWidth = 3;
       context.beginPath();
       context.moveTo(this.x, this.y);
       context.lineTo(this.lineX, this.lineY);
